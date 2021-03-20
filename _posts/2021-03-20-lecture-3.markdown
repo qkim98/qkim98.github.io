@@ -1,0 +1,105 @@
+---
+layout: post
+title:  "3일차 수업 정리"
+date:   2021-03-20 13:04:12 +0900
+categories: jekyll update
+---
+
+```sql
+CREATE TABLE `student`(
+	`id` INT(11) PRIMARY KEY AUTO_INCREMENT,
+	`name` VARCHAR(256) NOT NULL,
+	`age` INT(11) NOT NULL,
+);
+
+# 생성
+INSERT INTO student(`name`, `age`) VALUES('김규원', 21);
+
+# 삭제
+DELETE FROM student WHERE id=1;
+DELETE FROM student WHERE age<20;
+
+# 수정
+UPDATE student SET age=24 WHERE id=1;
+
+# 읽기
+SELECT id, `name`, age FROM student WHERE ???;
+SELECT * FROM student;
+```
+
+` 테이블, 컬럼, 등의 이름
+
+' 문자열(문자배열) 값 -> 숫자는 안써도돼(숫자는 그 자체로 의미를 갖지만 문자는 합쳐져야 의미를 갖기 때문)
+
+`*` 와일드카드(조커): 일정규칙을 가진, 뭐든 될 수 있는 애
+
+
+
+
+
+# 객체지향(object oriented)
+
+: 코드를 객체로 관리하겠다! /세상만사는 객체, 하지만 공통적 특성들이 있고 그걸 프로그래밍으로써 관리하겠다.
+
+* class: 관념, function, 특성
+* instance: 실제 결과물
+
+OOP의 4가지 특성
+
+1. 추상화
+   * 객체의 공통적 특성을 찾아서 정리
+   * 액션(method(function))과 내재적 특성(property(variable))은 구분됨
+2. 캡슐화
+   * 특정 method/property를 다른 객체에서 쓸 수 없도록 보호
+3. 상속
+   * 상위개념의 성질을 이어받고, 이를 크로스체킹 가능
+   * 가장 큰 장점은 코드 재사용(상위 개념에서 정리가 됐으니까 다시 안써도 된다)
+4. 다형성
+   * method는 같아도 실질적 기능은 다를 수 있다
+
+
+
+
+
+?변수 -> parameter
+
+?key1=value1&key2=value2
+
+
+
+HTTP method: HTTP는 리소스의 위치인데 같은 위치에서도 CRUD가 가능해야 돼. 
+
+근데 그걸 URL에 표기하기엔 한계가 있지.  같은 리소스에서도 **다른 Funciton을 할 수 있게 하는 것.**
+
+# HTTP에서의 CRUD(가급적 대문자로)
+
+C POST
+
+R GET
+
+U PUT or  PATCH
+
+D DELETE
+
+
+
+# python
+
+list는 값이 똑같을 수 있고 []
+
+set은 값이 똑같을 수 없다. 중복된 값은 생략하고 고유 값만 보여주는거 {}
+
+tuple은 값이 똑같을 수 있는데 변경이 불가능하다. 만약 뭔가를 더하더라도 a b는 그대로 두고 새로운 위치에 하나더 생성 list는 가능, 소괄호 append pop 다 안되지. immutable
+
+a.append(6) = a에 6추가
+
+a.pop(6) = a에서 6 빼내기
+
+id(a) = a 위치
+
+dictionary = request.form = key를 이용해서 value를 찾아낼 수 있다
+
+get -> request.args(arguements) = query parameter(?key1=value1&key2=value2) 결론은 보임
+
+post -> request.form  결론은 안보임
+
